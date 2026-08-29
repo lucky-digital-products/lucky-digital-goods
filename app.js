@@ -188,30 +188,89 @@ function renderCheckout() {
       };
     });
 
-    payButton.onclick = () => {
-      const email = document.querySelector("#buyer-email").value.trim();
-      const name = document.querySelector("#buyer-name").value.trim();
-      const msg = document.querySelector("#checkout-message");
+payButton.onclick = async () => {
+  const email = document.querySelector("#buyer-email").value.trim();
+  const name = document.querySelector("#buyer-name").value.trim();
+  const msg = document.querySelector("#checkout-message");
 
-      if (!email || !email.includes("@")) {
-        msg.textContent = "Please enter a valid email address.";
-        return;
+  if (!email || !email.includes("@")) {
+    msg.textContent = "Please enter a valid email address.";
+    return;
+  }
+
+  if (!name) {
+    msg.textContent = "Please enter the buyer's full name.";
+    return;
+  }
+
+  // For now, checkout one product at a time.
+  const product = items[0];
+
+  if (!product) {
+    msg.textContent = "No product found in your cart.";
+    return;
+  }
+
+  try {
+    payButton.disabled = true;
+    payButton.textContent = "Connecting to payment...";
+    msg.textContent = "";
+
+    const response = await fetch(
+      "https://lucky-store-api.philippines-sma.workers.dev/create-checkout",
+      {
+        method: "POST",
+
+        headers: {
+          "Content-Type": "application/json"
+        },
+
+        body: JSON.stringify({
+          productId: product.id,
+          email: email,
+          name: name
+        })
       }
+    );
 
-      if (!name) {
-        msg.textContent = "Please enter the buyer's full name.";
-        return;
-      }
+    const result = await response.json();
 
-      const paymentUrl = items[0].paymentUrl;
-      if (!paymentUrl) {
-        msg.textContent =
-          "Payment is not connected yet. Add your secure payment/backend URL in products.js.";
-        return;
-      }
+    console.log("Checkout response:", result);
 
-      location.href = paymentUrl;
-    };
+    if (!response.ok) {
+      console.error(result);
+
+      msg.textContent =
+        result.error ||
+        "Unable to create checkout. Please try again.";
+
+      payButton.disabled = false;
+      payButton.textContent = "Pay";
+      return;
+    }
+
+    if (!result.checkoutUrl) {
+      msg.textContent =
+        "Payment checkout URL was not received.";
+
+      payButton.disabled = false;
+      payButton.textContent = "Pay";
+      return;
+    }
+
+    // Send customer to PayMongo
+    window.location.href = result.checkoutUrl;
+
+  } catch (error) {
+    console.error(error);
+
+    msg.textContent =
+      "Could not connect to the payment server. Please try again.";
+
+    payButton.disabled = false;
+    payButton.textContent = "Pay";
+  }
+};
   }
 
   draw();
