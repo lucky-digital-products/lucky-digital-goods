@@ -1,0 +1,10 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1000" height="1000">
+<rect width="1000" height="1000" fill="#f4ebff"/>
+<text x="100" y="150" font-family="Arial" font-size="62" font-weight="bold">What buyers get</text>
+<text x="130" y="300" font-family="Arial" font-size="38">✓ 1,000+ words pack</text>
+<text x="130" y="390" font-family="Arial" font-size="38">✓ Easy reference format</text>
+<text x="130" y="480" font-family="Arial" font-size="38">✓ Organized categories</text>
+<text x="130" y="570" font-family="Arial" font-size="38">✓ Pronunciation help</text>
+<rect x="120" y="760" width="760" height="105" rx="52" fill="#111"/>
+<text x="500" y="827" text-anchor="middle" font-family="Arial" font-size="34" font-weight="bold" fill="white">INSTANT DIGITAL DOWNLOAD</text>
+</svg>

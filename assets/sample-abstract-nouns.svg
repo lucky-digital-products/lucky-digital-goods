@@ -1,0 +1,17 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1400" height="800">
+<rect width="1400" height="800" fill="white"/>
+<text x="700" y="90" text-anchor="middle" font-family="Arial" font-size="58" font-weight="bold">Abstract Nouns</text>
+<rect x="80" y="150" width="1240" height="520" fill="#ffbd59"/>
+<rect x="80" y="150" width="1240" height="80" fill="#ff7d2a"/>
+<line x1="700" y1="150" x2="700" y2="670" stroke="white" stroke-width="5"/>
+<text x="380" y="205" text-anchor="middle" font-family="Arial" font-size="34" fill="white">Spanish</text>
+<text x="1010" y="205" text-anchor="middle" font-family="Arial" font-size="34" fill="white">Meaning</text>
+<text x="130" y="300" font-family="Arial" font-size="30">capacidad</text>
+<text x="780" y="300" font-family="Arial" font-size="30">Capacity</text>
+<text x="130" y="390" font-family="Arial" font-size="30">calidad</text>
+<text x="780" y="390" font-family="Arial" font-size="30">Quality</text>
+<text x="130" y="480" font-family="Arial" font-size="30">cantidad</text>
+<text x="780" y="480" font-family="Arial" font-size="30">Quantity</text>
+<text x="130" y="570" font-family="Arial" font-size="30">idea</text>
+<text x="780" y="570" font-family="Arial" font-size="30">Idea</text>
+</svg>
