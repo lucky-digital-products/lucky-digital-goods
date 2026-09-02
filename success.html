@@ -1,0 +1,216 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <title>Payment Successful | Lucky Digital Goods</title>
+
+  <style>
+    body {
+      margin: 0;
+      font-family: "Trebuchet MS", "Segoe UI", Arial, sans-serif;
+      background: #F6F8F3;
+      color: #172018;
+    }
+
+    .wrap {
+      min-height: 100vh;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      padding: 30px 20px;
+      box-sizing: border-box;
+    }
+
+    .card {
+      width: 100%;
+      max-width: 560px;
+      background: #FFFFFF;
+      border: 1px solid #D9E0D8;
+      padding: 40px;
+      box-sizing: border-box;
+      text-align: center;
+    }
+
+    h1 {
+      font-family: Georgia, "Times New Roman", serif;
+      margin-top: 0;
+      font-size: 34px;
+    }
+
+    p {
+      color: #6B756D;
+      line-height: 1.6;
+    }
+
+    .status {
+      margin: 25px 0;
+      padding: 16px;
+      background: #E7F0EA;
+      color: #214D39;
+    }
+
+    .download-btn {
+      display: none;
+      width: 100%;
+      box-sizing: border-box;
+      margin-top: 20px;
+      padding: 16px;
+      background: #2F6B4F;
+      color: white;
+      text-decoration: none;
+      font-weight: bold;
+      border: none;
+      cursor: pointer;
+    }
+
+    .download-btn:hover {
+      background: #214D39;
+    }
+
+    .home-link {
+      display: inline-block;
+      margin-top: 25px;
+      color: #2F6B4F;
+    }
+  </style>
+</head>
+
+<body>
+
+  <div class="wrap">
+
+    <div class="card">
+
+      <h1>Thank you!</h1>
+
+      <p>
+        Your payment was received.
+        We are confirming your order before releasing your download.
+      </p>
+
+      <div id="status" class="status">
+        Checking payment...
+      </div>
+
+      <a
+        id="downloadButton"
+        class="download-btn"
+        href="#"
+      >
+        Download PDF
+      </a>
+
+      <br>
+
+      <a
+        class="home-link"
+        href="index.html"
+      >
+        Return to Lucky Digital Goods
+      </a>
+
+    </div>
+
+  </div>
+
+
+  <script>
+
+    const API =
+      "https://lucky-store-api.philippines-sma.workers.dev";
+
+    const params =
+      new URLSearchParams(window.location.search);
+
+    const orderId =
+      params.get("order");
+
+    const statusBox =
+      document.getElementById("status");
+
+    const downloadButton =
+      document.getElementById("downloadButton");
+
+
+    if (!orderId) {
+
+      statusBox.textContent =
+        "Order information is missing.";
+
+    } else {
+
+      checkPayment();
+
+    }
+
+
+    async function checkPayment() {
+
+      try {
+
+        const response =
+          await fetch(
+            API +
+            "/verify?order=" +
+            encodeURIComponent(orderId)
+          );
+
+        const result =
+          await response.json();
+
+
+        if (result.paid === true) {
+
+          statusBox.textContent =
+            "Payment confirmed! Your download is ready.";
+
+          downloadButton.href =
+            result.downloadUrl;
+
+          downloadButton.style.display =
+            "block";
+
+          return;
+        }
+
+
+        if (
+          result.status === "pending" ||
+          result.status === "not_found"
+        ) {
+
+          statusBox.textContent =
+            "Payment received. Waiting for confirmation...";
+
+          setTimeout(checkPayment, 3000);
+
+          return;
+        }
+
+
+        statusBox.textContent =
+          "We could not confirm the payment yet.";
+
+        setTimeout(checkPayment, 5000);
+
+      }
+
+      catch (error) {
+
+        console.error(error);
+
+        statusBox.textContent =
+          "Checking your payment...";
+
+        setTimeout(checkPayment, 5000);
+
+      }
+
+    }
+
+  </script>
+
+</body>
+</html>
