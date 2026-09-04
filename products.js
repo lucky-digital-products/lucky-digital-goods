@@ -134,6 +134,37 @@ window.PRODUCTS = [
     "Help children learn the alphabet through fun animal-themed coloring and tracing activities.",
     "This printable A–Z activity book is designed for young learners who are beginning to recognize, trace, and write letters."
   ]
+},
+  {
+  id: "abc-sea-creatures-coloring-tracing-book",
+  category: "kids",
+
+  name: "ABC Sea Creatures Coloring & Tracing Book",
+
+  price: 50,
+  currency: "PHP",
+
+  short: "A fun printable A–Z coloring and tracing book featuring sea creatures for young learners.",
+
+  images: [
+    "assets/7.jpg",
+    "assets/8.jpg"
+  ],
+
+  features: [
+    "Digital PDF",
+    "A–Z alphabet activities",
+    "Sea creature coloring pages",
+    "Letter tracing practice",
+    "Printable worksheets",
+    "Made for young learners",
+    "Instant digital download"
+  ],
+
+  description: [
+    "Help children practice the alphabet through fun sea-creature-themed coloring and tracing activities.",
+    "This printable activity book is designed for young learners who are beginning to recognize, trace, and write letters."
+  ]
 }
   
 ];
