@@ -199,6 +199,38 @@ window.PRODUCTS = [
     "Make alphabet practice more festive with Christmas-themed coloring and tracing activities.",
     "This printable activity book helps young learners practice recognizing, tracing, and writing letters from A to Z while enjoying fun Christmas illustrations."
   ]
+},
+  {
+  id: "newyear-alphabet-coloring-tracing-book",
+  category: "kids",
+
+  name: "New Year Alphabet Coloring & Tracing Book",
+
+  price: 50,
+  currency: "PHP",
+
+  short: "A fun New Year-themed printable A–Z coloring and tracing book for young learners.",
+
+  images: [
+    "assets/13.jpg",
+    "assets/14.jpg"
+  ],
+
+  features: [
+    "Digital PDF",
+    "A–Z alphabet activities",
+    "New Year-themed coloring pages",
+    "Letter tracing practice",
+    "Printable worksheets",
+    "Made for young learners",
+    "Fun holiday learning activities",
+    "Instant digital download"
+  ],
+
+  description: [
+    "Celebrate the New Year while helping children practice the alphabet through fun coloring and tracing activities.",
+    "This printable activity book helps young learners recognize, trace, and write letters from A to Z with New Year-themed illustrations."
+  ]
 }
   
 ];
