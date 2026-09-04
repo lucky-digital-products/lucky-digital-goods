@@ -115,8 +115,8 @@ window.PRODUCTS = [
   short: "A fun printable A–Z activity book that helps young children practice the alphabet through animal-themed coloring and tracing.",
 
   images: [
-    "assets/5.png",
-    "assets/6.png"
+    "assets/5.jpg",
+    "assets/6.jpg"
   ],
 
   features: [
