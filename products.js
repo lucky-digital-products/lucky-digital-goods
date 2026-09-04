@@ -102,6 +102,38 @@ window.PRODUCTS = [
     "Help children learn numbers 1 to 10 through simple coloring, tracing, and writing activities.",
     "This printable activity book is designed for young learners who are beginning to recognize and write numbers."
   ]
+},
+  {
+  id: "animal-abc-coloring-tracing-book",
+  category: "kids",
+
+  name: "Animal ABC Coloring & Tracing Book",
+
+  price: 50,
+  currency: "PHP",
+
+  short: "A fun printable A–Z activity book that helps young children practice the alphabet through animal-themed coloring and tracing.",
+
+  images: [
+    "assets/5.png",
+    "assets/6.png"
+  ],
+
+  features: [
+    "Digital PDF",
+    "A–Z alphabet activities",
+    "Animal-themed coloring pages",
+    "Letter tracing practice",
+    "Printable worksheets",
+    "Made for young learners",
+    "US Letter size",
+    "Instant digital download"
+  ],
+
+  description: [
+    "Help children learn the alphabet through fun animal-themed coloring and tracing activities.",
+    "This printable A–Z activity book is designed for young learners who are beginning to recognize, trace, and write letters."
+  ]
 }
   
 ];
