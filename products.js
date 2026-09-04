@@ -15,8 +15,8 @@ window.PRODUCTS = [
     "A quick-reference guide to 1,000+ Spanish-derived Filipino words, with roots, English meanings, and pronunciation guidance.",
 
   images: [
-    "assets/secretly-spanish-cover.svg",
-    "assets/sample-abstract-nouns.svg",
+    "assets/NEW.png",
+    "assets/SAMPLE.png",
     "assets/what-you-get.svg"
   ],
 
@@ -51,7 +51,8 @@ window.PRODUCTS = [
     "A fun 26-page printable ABC coloring and tracing worksheet for young learners.",
 
   images: [
-    "assets/abc-coloring-cover.jpg"
+    "assets/1.png",
+    "assets/2.png"
   ],
 
   features: [
