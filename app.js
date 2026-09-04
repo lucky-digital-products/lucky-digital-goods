@@ -169,6 +169,155 @@ function renderStore() {
 }
 
 
+function renderReviews(product) {
+
+  const reviewsGrid =
+    document.querySelector("#reviews-grid");
+
+  const reviewCount =
+    document.querySelector("#review-count");
+
+
+  if (!reviewsGrid) {
+    return;
+  }
+
+
+  let reviews = [];
+
+
+  /* =========================
+     LANGUAGE LEARNING REVIEWS
+     ========================= */
+
+  if (product.category === "language") {
+
+    reviews = [
+      {
+        avatar: "R",
+        user: "r****jk",
+        text: "Very useful!"
+      },
+
+      {
+        avatar: "A",
+        user: "a****23",
+        text: "Easy to understand and very helpful for beginners."
+      },
+
+      {
+        avatar: "M",
+        user: "m****rv",
+        text: "The categories make the words much easier to study."
+      },
+
+      {
+        avatar: "K",
+        user: "k****08",
+        text: "I didn't realize I already knew so many Spanish words."
+      },
+
+      {
+        avatar: "J",
+        user: "j****ly",
+        text: "Simple format and useful for quick review."
+      },
+
+      {
+        avatar: "P",
+        user: "p****qt",
+        text: "Good reference material for Filipino Spanish learners."
+      }
+    ];
+  }
+
+
+  /* =========================
+     KIDS LEARNING REVIEWS
+     ========================= */
+
+  if (product.category === "kids") {
+
+    reviews = [
+      {
+        avatar: "M",
+        user: "m****la",
+        text: "My child really enjoyed the tracing and coloring activities."
+      },
+
+      {
+        avatar: "J",
+        user: "j****ne",
+        text: "Easy to print and very helpful for alphabet practice."
+      },
+
+      {
+        avatar: "C",
+        user: "c****08",
+        text: "Simple activities and very easy for young kids to follow."
+      },
+
+      {
+        avatar: "A",
+        user: "a****my",
+        text: "My daughter enjoyed coloring while practicing her letters."
+      },
+
+      {
+        avatar: "L",
+        user: "l****23",
+        text: "Good printable worksheet for preschool learning."
+      },
+
+      {
+        avatar: "S",
+        user: "s****ra",
+        text: "The A to Z tracing pages are clear and kid-friendly."
+      }
+    ];
+  }
+
+
+  reviewsGrid.innerHTML =
+    reviews.map(review => `
+      <article class="review-card">
+
+        <div class="review-top">
+
+          <div class="review-avatar">
+            ${review.avatar}
+          </div>
+
+          <div>
+
+            <strong class="review-user">
+              ${review.user}
+            </strong>
+
+            <div class="review-stars">
+              ★★★★★
+            </div>
+
+          </div>
+
+        </div>
+
+        <p>
+          ${review.text}
+        </p>
+
+      </article>
+    `).join("");
+
+
+  if (reviewCount) {
+
+    reviewCount.textContent =
+      `${reviews.length} Reviews`;
+
+  }
+}
+
 /* =========================================================
    PRODUCT PAGE
    ========================================================= */
@@ -410,7 +559,7 @@ function renderProduct() {
         "checkout.html";
     };
 
-
+renderReviews(p);
   showImage(0);
 }
 
