@@ -1,41 +1,45 @@
 window.PRODUCTS = [
-  {
-    id: "secretly-spanish-1000",
-    name: "Secretly Spanish: 1000+ Tagalog Words You Didn't Know Were Spanish",
-    price: 150,
-    currency: "PHP",
+{
+  id: "secretly-spanish-1000",
 
-    short:
-      "A quick-reference guide to 1,000+ Spanish-derived Filipino words, with roots, English meanings, and pronunciation guidance.",
+  category: "language",
 
-    images: [
-      "assets/NEW.png",
-      "assets/SAMPLE.png",
-      "assets/what-you-get.svg"
-    ],
+  name:
+    "Secretly Spanish: 1000+ Tagalog Words You Didn't Know Were Spanish",
 
-    features: [
-      "35-page digital PDF",
-      "1,000+ familiar Spanish-derived Filipino words",
-      "Organized by category",
-      "Spanish root + English meaning",
-      "Easy pronunciation guidance",
-      "Instant digital delivery after payment"
-    ],
+  price: 150,
 
-    description: [
-      "Did you know many everyday Filipino words came from Spanish? This guide helps learners recognize familiar vocabulary so Spanish feels easier from day one.",
-      "The words are organized into useful categories such as food, family, numbers, objects, occupations, religion, and daily life.",
-      "Replace the sample preview files in the assets folder with your own real product previews."
-    ],
+  currency: "PHP",
 
-    // Put your secure payment/backend checkout URL here later.
-    paymentUrl: ""
-  }
+  short:
+    "A quick-reference guide to 1,000+ Spanish-derived Filipino words, with roots, English meanings, and pronunciation guidance.",
 
+  images: [
+    "assets/secretly-spanish-cover.svg",
+    "assets/sample-abstract-nouns.svg",
+    "assets/what-you-get.svg"
+  ],
+
+  features: [
+    "35-page digital PDF",
+    "1,000+ familiar Spanish-derived Filipino words",
+    "Organized by category",
+    "Spanish root + English meaning",
+    "Easy pronunciation guidance",
+    "Instant digital delivery after payment"
+  ],
+
+  description: [
+    "Did you know many everyday Filipino words came from Spanish?"
+  ],
+
+  paymentUrl: ""
+}
   ,
 {
   id: "abc-coloring-tracing-worksheet",
+
+  category: "kids",
 
   name: "ABC Coloring Tracing Worksheet",
 
@@ -47,22 +51,21 @@ window.PRODUCTS = [
     "A fun 26-page printable ABC coloring and tracing worksheet for young learners.",
 
   images: [
-      "assets/1.png",
-      "assets/2.png"
+    "assets/abc-coloring-cover.jpg"
   ],
 
   features: [
     "26-page digital PDF",
-    "A–Z alphabet tracing activities",
-    "Coloring activities for every letter",
+    "A–Z alphabet tracing",
+    "Coloring activities",
     "Printable worksheets",
     "Made for young learners",
-    "Instant digital delivery after payment"
+    "Instant digital download"
   ],
 
   description: [
-    "Help children practice the alphabet through simple tracing and coloring activities.",
-    "This 26-page printable worksheet covers letters A to Z and can be printed at home for repeated learning and practice."
+    "Help children learn the alphabet through simple tracing and coloring activities.",
+    "Includes one printable activity page for every letter from A to Z."
   ],
 
   paymentUrl: ""
