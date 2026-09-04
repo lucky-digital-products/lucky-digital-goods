@@ -51,3 +51,47 @@ a{color:inherit} img{max-width:100%;display:block} button,input,select{font:inhe
 @media(max-width:820px){.product-detail,.checkout-layout{grid-template-columns:1fr}.product-info,.checkout-box{position:static}.main-image-wrap{height:500px}}
 @media(max-width:650px){.reviews-header{align-items:flex-start;flex-direction:column}.reviews-grid{grid-template-columns:1fr}}
 @media(max-width:560px){.site-header{padding:14px 16px}.brand span{font-size:14px}.hero{padding:48px 0 30px}.hero p{font-size:17px}.main-image-wrap{height:390px}.purchase-actions{grid-template-columns:1fr}.checkout-item{grid-template-columns:72px 1fr}.checkout-item img{width:72px;height:72px}.checkout-item>strong{grid-column:2}.site-footer{align-items:flex-start;flex-direction:column}}
+
+
+
+/* =========================
+   PRODUCT CATEGORIES
+   ========================= */
+
+.category-section {
+  margin-bottom: 70px;
+}
+
+.category-section + .category-section {
+  padding-top: 10px;
+  border-top: 1px solid var(--line);
+}
+
+.category-label {
+  margin: 0 0 7px;
+  font-size: 11px;
+  font-weight: 900;
+  letter-spacing: .16em;
+  color: var(--accent);
+}
+
+.category-section .section-title {
+  margin-bottom: 24px;
+}
+
+.category-section .section-title h2 {
+  margin: 0;
+  font-size: 32px;
+}
+
+.category-section .product-grid {
+  padding-bottom: 0;
+}
+
+.empty-category {
+  grid-column: 1 / -1;
+  padding: 30px;
+  border: 1px solid var(--line);
+  background: #fff;
+  color: var(--muted);
+}
