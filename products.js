@@ -47,7 +47,6 @@ window.PRODUCTS = [
     "A fun 26-page printable ABC coloring and tracing worksheet for young learners.",
 
   images: [
-    "assets/3.mp4",
       "assets/1.png",
       "assets/2.png"
   ],
