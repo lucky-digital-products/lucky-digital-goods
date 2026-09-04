@@ -70,5 +70,38 @@ window.PRODUCTS = [
   ],
 
   paymentUrl: ""
+},
+{
+  id: "numbers-1-to-10-coloring-writing-book",
+  category: "kids",
+
+  name: "Numbers 1 to 10 Kids Coloring & Writing Book",
+
+  price: 50,
+  currency: "PHP",
+
+  short: "A fun printable activity book that helps kids learn numbers 1 to 10 through coloring, tracing, and writing.",
+
+  images: [
+    "assets/3.png",
+     "assets/4.png"
+  ],
+
+  features: [
+    "Digital PDF",
+    "Numbers 1 to 10",
+    "Number tracing activities",
+    "Writing practice",
+    "Coloring activities",
+    "Printable worksheets",
+    "Made for young learners",
+    "Instant digital download"
+  ],
+
+  description: [
+    "Help children learn numbers 1 to 10 through simple coloring, tracing, and writing activities.",
+    "This printable activity book is designed for young learners who are beginning to recognize and write numbers."
+  ]
 }
+  
 ];
