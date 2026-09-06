@@ -1,6 +1,60 @@
 const PRODUCTS = window.PRODUCTS || [];
 
+/* =========================================================
+   DISPLAY CURRENCY
+   ========================================================= */
 
+/*
+  Approximate display conversion only.
+
+  PayMongo checkout still charges PHP.
+  Change this number later whenever you want
+  to update the approximate exchange rate.
+*/
+
+const PHP_PER_USD = 58;
+
+function getDisplayCurrency() {
+  return localStorage.getItem("luckyCurrency") || "PHP";
+}
+
+function setDisplayCurrency(currency) {
+  localStorage.setItem("luckyCurrency", currency);
+}
+
+function displayPrice(product) {
+
+  const selectedCurrency = getDisplayCurrency();
+
+  if (selectedCurrency === "USD") {
+
+    const usd =
+      product.price / PHP_PER_USD;
+
+    return `
+      <span class="price-main">
+        US$${usd.toFixed(2)}
+      </span>
+
+      <span class="price-conversion">
+        ≈ ₱${product.price}
+      </span>
+    `;
+  }
+
+  const usd =
+    product.price / PHP_PER_USD;
+
+  return `
+    <span class="price-main">
+      ₱${product.price}
+    </span>
+
+    <span class="price-conversion">
+      ≈ US$${usd.toFixed(2)}
+    </span>
+  `;
+}
 /* =========================================================
    MONEY FORMAT
    ========================================================= */
@@ -92,8 +146,8 @@ function productCardHTML(p) {
           <div class="product-meta">
 
             <span class="price-tag">
-              ${money(p.price, p.currency)}
-            </span>
+  ${displayPrice(p)}
+</span>
 
             <span class="view-link">
               View →
@@ -958,6 +1012,26 @@ function renderCheckout() {
 document.addEventListener(
   "DOMContentLoaded",
   () => {
+     const currencySelector =
+  document.querySelector("#currency-selector");
+
+if (currencySelector) {
+
+  currencySelector.value =
+    getDisplayCurrency();
+
+  currencySelector.addEventListener(
+    "change",
+    () => {
+
+      setDisplayCurrency(
+        currencySelector.value
+      );
+
+      location.reload();
+    }
+  );
+}
 
     renderStore();
 
