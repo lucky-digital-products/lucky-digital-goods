@@ -200,7 +200,7 @@ window.PRODUCTS = [
     "This printable activity book helps young learners practice recognizing, tracing, and writing letters from A to Z while enjoying fun Christmas illustrations."
   ]
 },
-  {
+{
   id: "newyear-alphabet-coloring-tracing-book",
   category: "kids",
 
@@ -231,6 +231,38 @@ window.PRODUCTS = [
     "Celebrate the New Year while helping children practice the alphabet through fun coloring and tracing activities.",
     "This printable activity book helps young learners recognize, trace, and write letters from A to Z with New Year-themed illustrations."
   ]
+},
+
+{
+  id: "nib-and-the-lantern-cloud",
+  category: "kids",
+
+  name: "Nib and the Lantern Cloud",
+
+  price: 50,
+  currency: "PHP",
+
+  short: "A gentle illustrated children's story about Nib and a magical lantern cloud, made for young readers and family story time.",
+
+  images: [
+    "assets/cover.jpeg",
+    "assets/bw3.jpeg",
+    "assets/NIB3.jpeg"
+  ],
+
+  features: [
+    "Digital PDF",
+    "Illustrated children's story",
+    "Made for young readers",
+    "Family-friendly story",
+    "Printable and screen-friendly",
+    "Instant digital download"
+  ],
+
+  description: [
+    "Follow Nib on a gentle adventure involving a mysterious lantern cloud.",
+    "This illustrated digital storybook is designed for young readers and can be enjoyed during quiet reading time, bedtime, or family story sessions."
+  ]
 }
-  
+
 ];
