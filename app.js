@@ -436,12 +436,9 @@ function renderProduct() {
 
 
   document
-    .querySelector("#product-price")
-    .textContent =
-    money(
-      p.price,
-      p.currency
-    );
+  .querySelector("#product-price")
+  .innerHTML =
+  displayPrice(p);
 
 
   document
