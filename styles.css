@@ -95,3 +95,21 @@ a{color:inherit} img{max-width:100%;display:block} button,input,select{font:inhe
   background: #fff;
   color: var(--muted);
 }
+
+/* =========================
+   CURRENCY SELECTOR
+   ========================= */
+
+.currency-selector {
+  padding: 10px 12px;
+  border: 1px solid var(--line);
+  background: #fff;
+  color: var(--text);
+  font-weight: 700;
+  border-radius: 0;
+  cursor: pointer;
+}
+
+.currency-selector:focus {
+  outline: 1px solid var(--accent);
+}
