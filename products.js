@@ -243,11 +243,11 @@ window.PRODUCTS = [
 
   short: "A gentle illustrated children's story about Nib and a magical lantern cloud, made for young readers and family story time.",
 
-  images: [
-    "assets/cover.jpeg",'
-    "assets/bw3.jpeg",
-    "assets/NIB3.jpeg"
-  ],
+images: [
+  "assets/cover.jpeg",
+  "assets/bw3.jpeg",
+  "assets/NIB3.jpeg"
+],
 
   features: [
     "Digital PDF",
