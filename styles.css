@@ -132,3 +132,8 @@ a{color:inherit} img{max-width:100%;display:block} button,input,select{font:inhe
   font-size: 13px;
   margin-top: 5px;
 }
+.currency-note {
+  font-size: 13px;
+  color: var(--muted);
+  margin-bottom: 30px;
+}
