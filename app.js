@@ -872,12 +872,9 @@ function renderCheckout() {
 
               </div>
 
-              <strong>
-                ${money(
-                  p.price,
-                  p.currency
-                )}
-              </strong>
+              <strong class="checkout-product-price">
+  ${displayPrice(p)}
+</strong>
 
             </article>
           `
@@ -885,12 +882,12 @@ function renderCheckout() {
         .join("");
 
 
-    const total =
-      items.reduce(
-        (sum, p) =>
-          sum + p.price,
-        0
-      );
+const total =
+  items.reduce(
+    (sum, p) =>
+      sum + getEffectivePrice(p),
+    0
+  );
 
 
     const currency =
