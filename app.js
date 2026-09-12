@@ -292,6 +292,51 @@ function renderCategory(category, gridId) {
       .join("");
 }
 
+function renderSaleProducts() {
+
+  const grid =
+    document.getElementById(
+      "sale-product-grid"
+    );
+
+  const section =
+    document.getElementById(
+      "sale-section"
+    );
+
+  if (!grid || !section) {
+    return;
+  }
+
+  const saleProducts =
+    PRODUCTS.filter(
+      product =>
+        product.sale === true &&
+        typeof product.salePrice === "number" &&
+        product.salePrice < product.price
+    );
+
+
+  /* Hide entire Sale section
+     when nothing is on sale */
+
+  if (!saleProducts.length) {
+
+    section.style.display =
+      "none";
+
+    return;
+  }
+
+
+  section.style.display =
+    "";
+
+  grid.innerHTML =
+    saleProducts
+      .map(productCardHTML)
+      .join("");
+}
 
 /* =========================================================
    STORE HOMEPAGE
@@ -299,11 +344,12 @@ function renderCategory(category, gridId) {
 
 function renderStore() {
 
+  renderSaleProducts();
+
   renderCategory(
     "language",
     "language-product-grid"
   );
-
 
   renderCategory(
     "kids",
