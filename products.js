@@ -9,6 +9,9 @@ window.PRODUCTS = [
 
   price: 150,
 
+  sale: true,
+salePrice: 50,
+
   currency: "PHP",
 
   short:
