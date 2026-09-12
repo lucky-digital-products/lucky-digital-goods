@@ -22,36 +22,109 @@ function setDisplayCurrency(currency) {
   localStorage.setItem("luckyCurrency", currency);
 }
 
+function getEffectivePrice(product) {
+  if (
+    product.sale === true &&
+    typeof product.salePrice === "number"
+  ) {
+    return product.salePrice;
+  }
+
+  return product.price;
+}
+
+
 function displayPrice(product) {
 
-  const selectedCurrency = getDisplayCurrency();
+  const selectedCurrency =
+    getDisplayCurrency();
+
+  const isSale =
+    product.sale === true &&
+    typeof product.salePrice === "number" &&
+    product.salePrice < product.price;
+
+  const currentPrice =
+    getEffectivePrice(product);
+
+  const oldUsd =
+    product.price / PHP_PER_USD;
+
+  const currentUsd =
+    currentPrice / PHP_PER_USD;
+
+
+  /* =========================
+     USD DISPLAY
+     ========================= */
 
   if (selectedCurrency === "USD") {
 
-    const usd =
-      product.price / PHP_PER_USD;
+    if (isSale) {
+      return `
+        <span class="sale-price-row">
+
+          <span class="old-price">
+            US$${oldUsd.toFixed(2)}
+          </span>
+
+          <span class="sale-price">
+            US$${currentUsd.toFixed(2)}
+          </span>
+
+        </span>
+
+        <span class="price-conversion">
+          ≈ ₱${currentPrice}
+        </span>
+      `;
+    }
 
     return `
       <span class="price-main">
-        US$${usd.toFixed(2)}
+        US$${currentUsd.toFixed(2)}
       </span>
 
       <span class="price-conversion">
-        ≈ ₱${product.price}
+        ≈ ₱${currentPrice}
       </span>
     `;
   }
 
-  const usd =
-    product.price / PHP_PER_USD;
+
+  /* =========================
+     PHP DISPLAY
+     ========================= */
+
+  if (isSale) {
+
+    return `
+      <span class="sale-price-row">
+
+        <span class="old-price">
+          ₱${product.price}
+        </span>
+
+        <span class="sale-price">
+          ₱${currentPrice}
+        </span>
+
+      </span>
+
+      <span class="price-conversion">
+        ≈ US$${currentUsd.toFixed(2)}
+      </span>
+    `;
+  }
+
 
   return `
     <span class="price-main">
-      ₱${product.price}
+      ₱${currentPrice}
     </span>
 
     <span class="price-conversion">
-      ≈ US$${usd.toFixed(2)}
+      ≈ US$${currentUsd.toFixed(2)}
     </span>
   `;
 }
@@ -127,15 +200,31 @@ function removeFromCart(id) {
    ========================================================= */
 
 function productCardHTML(p) {
+
+  const isSale =
+    p.sale === true &&
+    typeof p.salePrice === "number" &&
+    p.salePrice < p.price;
+
   return `
     <article class="product-card">
 
       <a href="product.html?id=${encodeURIComponent(p.id)}">
 
-        <img
-          src="${p.images[0]}"
-          alt="${p.name}"
-        >
+        <div class="product-image-box">
+
+          ${
+            isSale
+              ? `<span class="sale-badge">SALE</span>`
+              : ""
+          }
+
+          <img
+            src="${p.images[0]}"
+            alt="${p.name}"
+          >
+
+        </div>
 
         <div class="product-card-body">
 
@@ -146,8 +235,8 @@ function productCardHTML(p) {
           <div class="product-meta">
 
             <span class="price-tag">
-  ${displayPrice(p)}
-</span>
+              ${displayPrice(p)}
+            </span>
 
             <span class="view-link">
               View →
