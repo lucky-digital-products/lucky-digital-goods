@@ -85,10 +85,10 @@
 
       <h1>Thank you!</h1>
 
-      <p>
-        Your payment was received.
-        We are confirming your order before releasing your download.
-      </p>
+<p>
+  We are checking your payment status.
+  Your download will be available once payment is confirmed.
+</p>
 
       <div id="status" class="status">
         Checking payment...
@@ -126,7 +126,8 @@
 
     const orderId =
       params.get("order");
-
+const provider =
+  params.get("provider") || "paymongo";
     const statusBox =
       document.getElementById("status");
 
@@ -134,16 +135,20 @@
       document.getElementById("downloadButton");
 
 
-    if (!orderId) {
+if (!orderId) {
 
-      statusBox.textContent =
-        "Order information is missing.";
+  statusBox.textContent =
+    "Order information is missing.";
 
-    } else {
+} else if (provider === "paypal") {
 
-      checkPayment();
+  capturePayPalPayment();
 
-    }
+} else {
+
+  checkPayment();
+
+}
 
 
     async function checkPayment() {
@@ -209,7 +214,93 @@
       }
 
     }
+// =========================================================
+// PAYPAL SANDBOX — CAPTURE PAYMENT
+// =========================================================
 
+async function capturePayPalPayment() {
+
+  statusBox.textContent =
+    "Confirming your PayPal payment...";
+
+  try {
+
+    const response = await fetch(
+      API + "/paypal-capture-order",
+      {
+        method: "POST",
+
+        headers: {
+          "Content-Type": "application/json"
+        },
+
+        body: JSON.stringify({
+          orderId: orderId
+        })
+      }
+    );
+
+    const result = await response.json();
+
+    if (!response.ok) {
+
+      statusBox.textContent =
+        "Unable to confirm PayPal payment. Please try again.";
+
+      console.error(
+        "PayPal capture error:",
+        result
+      );
+
+      return;
+    }
+
+    if (result.paid === true) {
+
+      statusBox.textContent =
+        "PayPal payment confirmed! Preparing your download...";
+
+      // Use existing secure download verification
+      checkPayment();
+
+      return;
+    }
+
+    if (
+      result.status === "CREATED" ||
+      result.status === "PAYER_ACTION_REQUIRED" ||
+      result.status === "SAVED"
+    ) {
+
+      statusBox.textContent =
+        "PayPal payment has not been completed.";
+
+      return;
+    }
+
+    if (result.status === "APPROVED") {
+
+      statusBox.textContent =
+        "Your PayPal payment is still being processed. Please refresh this page shortly.";
+
+      return;
+    }
+
+    statusBox.textContent =
+      "PayPal payment has not been confirmed.";
+
+  } catch (error) {
+
+    console.error(
+      "PayPal capture error:",
+      error
+    );
+
+    statusBox.textContent =
+      "Unable to connect to PayPal verification. Please refresh this page.";
+
+  }
+}
   </script>
 
 </body>
