@@ -50,7 +50,44 @@
           <p>This static GitHub Pages store does not collect card details. Clicking Pay sends the buyer to the secure payment link configured for the product.</p>
         </div>
 
-        <button id="pay-button" class="btn btn-primary btn-block">Pay securely</button>
+<!-- PAYMENT METHOD SELECTION -->
+<div class="payment-method-section">
+
+  <h3>Choose payment method</h3>
+
+  <label class="payment-option">
+    <input
+      type="radio"
+      name="payment-method"
+      value="paymongo"
+      checked
+    />
+    <span>
+      <strong>QR Ph — PayMongo</strong>
+      <small>Live payment · Philippines</small>
+    </span>
+  </label>
+
+  <label class="payment-option">
+    <input
+      type="radio"
+      name="payment-method"
+      value="paypal"
+    />
+    <span>
+      <strong>PayPal</strong>
+      <small>Sandbox · Testing only — no real payment</small>
+    </span>
+  </label>
+
+</div>
+
+<button
+  id="pay-button"
+  class="btn btn-primary btn-block"
+>
+  Pay securely
+</button>
         <p id="checkout-message" class="form-message" aria-live="polite"></p>
 
         <p class="fine-print">By continuing, the buyer agrees to your terms and refund policy.</p>
