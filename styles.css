@@ -210,3 +210,50 @@ a{color:inherit} img{max-width:100%;display:block} button,input,select{font:inhe
 .sale-label {
   color: #b42318;
 }
+/* CHECKOUT PAYMENT OPTIONS */
+
+.payment-method-section {
+  margin: 22px 0;
+}
+
+.payment-method-section h3 {
+  font-size: 15px;
+  margin-bottom: 12px;
+}
+
+.payment-option {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  padding: 14px;
+  border: 1px solid #D9E0D8;
+  margin-bottom: 10px;
+  background: #FFFFFF;
+  cursor: pointer;
+}
+
+.payment-option:has(input:checked) {
+  border-color: #2F6B4F;
+  background: #E7F0EA;
+}
+
+.payment-option input {
+  accent-color: #2F6B4F;
+  flex-shrink: 0;
+}
+
+.payment-option span {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+}
+
+.payment-option strong {
+  color: #172018;
+  font-size: 14px;
+}
+
+.payment-option small {
+  color: #6B756D;
+  font-size: 12px;
+}
