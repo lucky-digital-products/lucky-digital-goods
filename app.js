@@ -984,7 +984,11 @@ const total =
 
           return;
         }
-
+if (items.length !== 1) {
+  msg.textContent =
+    "Please keep only one product in your cart before checkout.";
+  return;
+}
 
         /*
           IMPORTANT:
@@ -1018,14 +1022,20 @@ const total =
           msg.textContent =
             "";
 
+const selectedPayment =
+  document.querySelector(
+    'input[name="payment-method"]:checked'
+  )?.value || "paymongo";
 
-          const response =
-            await fetch(
-              "https://lucky-store-api.philippines-sma.workers.dev/create-checkout",
-              {
-
-                method:
-                  "POST",
+const checkoutEndpoint =
+  selectedPayment === "paypal"
+    ? "/paypal-create-order"
+    : "/create-checkout";
+const response = await fetch(
+  "https://lucky-store-api.philippines-sma.workers.dev" +
+    checkoutEndpoint,
+  {
+    method: "POST",
 
                 headers: {
                   "Content-Type":
